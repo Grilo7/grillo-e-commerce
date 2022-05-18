@@ -1,13 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
+import Header from '../Header'
 import { PRODUCTS } from '../../Data/products'
 import React from 'react'
 
 const ProductItem = ({product}) => {
 
     return (
-        <View>
-            <Image source={{URL: product.image}} style={styles.image}/>
+                <View>
+            <Image source={{uri: product.image}} style={styles.image}/>
             <Text>{product.description}</Text>
         </View>
     )

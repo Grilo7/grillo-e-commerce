@@ -18,7 +18,7 @@ export default function App() {
 
   const [loaded] = useFonts ({
     Arvo: require('./assets/Fonts/Arvo/Arvo-Bold.ttf'),
-    Coolvetica: require('./assets/Fonts/Coolvetica/coolvetica rg.ttf'),
+    Montserrat: require('./assets/Fonts/Montserrat/Montserrat-Bold.otf'),
   });
 
   if (!loaded) {
@@ -33,6 +33,7 @@ export default function App() {
         <ProductsScreen category={categorySelected} handleCategory={handleCategory}/>
         :
         <CategoriesScreen handleCategory = {handleCategory}/>
+                
       }
     </View>
   );

@@ -6,7 +6,7 @@ import { Entypo } from '@expo/vector-icons'
 import Header from '../Components/Header'
 import List from '../Components/List'
 import Searcher from '../Components/Searcher'
-import { colors } from '../Styles/colors'
+import { colors } from '../Styles/Colors'
 
 const CategoriesScreen = ({handleCategory}) => {
 
@@ -17,7 +17,7 @@ const CategoriesScreen = ({handleCategory}) => {
         if (input === "") setCategoriesFilter(CATEGORIES)
         else {
             console.log("Se ejecuta el efecto");
-            const categoriasFiltradas = categoriesFilter.filter(category => category.category.toLowerCase().includes(input.toLowerCase()))
+            const categoriasFiltradas = CATEGORIES.filter(category => category.category.toLowerCase().includes(input.toLowerCase()))
             setCategoriesFilter(categoriasFiltradas)
         }
     }, [input])
@@ -36,7 +36,7 @@ const CategoriesScreen = ({handleCategory}) => {
             <Header/>
             <View style={styles.container}>
                 <Searcher additionalStyles={{
-                    backgroundColor: colors.yellow
+                    backgroundColor: colors.yellow,
                 }}>
                     <TextInput
                         value={input}

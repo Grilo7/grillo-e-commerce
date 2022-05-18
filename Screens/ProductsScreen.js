@@ -6,7 +6,9 @@ import Header from '../Components/Header';
 import List from '../Components/List';
 import { PRODUCTS } from '../Data/products';
 import Searcher from '../Components/Searcher';
-import { colors } from '../Styles/colors';
+import { colors } from '../Styles/Colors';
+
+;
 
 const ProductsScreen = ({category = {id: 1, category: "Ropa"}, handleCategory}) => {
 
@@ -50,7 +52,7 @@ const ProductsScreen = ({category = {id: 1, category: "Ropa"}, handleCategory}) 
                         onChangeText={setInput}
                         keyboardType="default"
                         style={styles.input}
-                        placeholder = "Ingrese producto a buscar"
+                        placeholder = "¿Qué buscas?"
                     />
                     <TouchableOpacity onPress={handleErase}>
                         <Entypo name="erase" size={30} color="black" />

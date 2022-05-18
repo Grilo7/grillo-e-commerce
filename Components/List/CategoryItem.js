@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 
 import React from 'react'
-import { colors } from '../../Styles/colors'
+import { colors } from '../../Styles/Colors'
 
 const CategoryItem = ({category}) => {
     return (
@@ -20,13 +20,13 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
         padding: 15,
-        backgroundColor: colors.lightBlue,
+        backgroundColor: colors.darkBlue,
         margin: 15,
         borderRadius: 8,
     },
     text: {
         fontSize: 18,
-        fontFamily: 'Arvo',
+        fontFamily: 'Montserrat',
         color: colors.yellow,
     }
 })

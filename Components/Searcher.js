@@ -16,7 +16,7 @@ export default Searcher
 const styles = StyleSheet.create({
     searcherContainer: {
         flexDirection: 'row',
-        width: '90%',
+        width:'90%',
         alignItems: 'center',
         marginVertical: 20,
         shadowColor: "#000",
