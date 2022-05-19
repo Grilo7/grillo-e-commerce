@@ -1,11 +1,24 @@
+import { Dimensions, useWindowDimensions } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native'
 
 import React from 'react'
 import { colors } from '../../Styles/Colors'
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 const CategoryItem = ({category}) => {
+
+    const {width, height} = useWindowDimensions();
+
+    console.log(width, height)
+    
     return (
-        <View style={styles.container}>
+        <View style={{...styles.container,
+            maxWidth: 0.43 * width,
+            maxHeight: 0.43 * width,
+            margin: width < 330 ? 10:15,
+        }}>
             <Text style={styles.text}>{category.category}</Text>
     </View>
     )
@@ -21,7 +34,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         padding: 15,
         backgroundColor: colors.darkBlue,
-        margin: 15,
         borderRadius: 8,
     },
     text: {

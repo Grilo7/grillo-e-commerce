@@ -1,4 +1,4 @@
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, SafeAreaView, StyleSheet, View } from 'react-native';
 
 import CategoriesScreen from './Screens/CategoriesScreen';
 import ProductsScreen from './Screens/ProductsScreen';
@@ -8,10 +8,16 @@ import { useState } from 'react';
 export default function App() {
 
   const [categorySelected, setCategorySelected] = useState(null)
+  const [productSelected, setProductSelected] = useState(null);
 
   const handleCategory = (category) => {
     //console.log(category);
     setCategorySelected(category)
+  }
+
+  const handleProduct = (product) => {
+    //console.log(category);
+    setProductSelected(product)
   }
 
   console.log(categorySelected);
@@ -26,16 +32,20 @@ export default function App() {
   }
 
   console.log(loaded);
+  console.log(productSelected);
 
   return (
-    <View style={styles.container}>
-      { categorySelected ?
-        <ProductsScreen category={categorySelected} handleCategory={handleCategory}/>
-        :
+    <SafeAreaView style={styles.container}>
+      { !categorySelected ?
         <CategoriesScreen handleCategory = {handleCategory}/>
+        :
+        !productSelected ?
+        <ProductsScreen category={categorySelected} handleProduct={handleProduct}/>
+        :
+        <DetailScreen product={productSelected} handleProduct={handleProduct}/>
                 
       }
-    </View>
+    </SafeAreaView>
   );
 }
 

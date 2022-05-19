@@ -27,7 +27,7 @@ const CategoriesScreen = ({handleCategory}) => {
     }
 
     const handleSelectedCategory = (category) => {
-        handleCategory(category);
+        handleCategory(category)
     }
 
 
