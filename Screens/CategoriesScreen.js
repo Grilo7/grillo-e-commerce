@@ -8,7 +8,7 @@ import List from '../Components/List'
 import Searcher from '../Components/Searcher'
 import { colors } from '../Styles/Colors'
 
-const CategoriesScreen = ({handleCategory}) => {
+const CategoriesScreen = ({navigation}) => {
 
     const [input, setInput] = useState("")
     const [categoriesFilter, setCategoriesFilter] = useState(CATEGORIES)
@@ -27,7 +27,8 @@ const CategoriesScreen = ({handleCategory}) => {
     }
 
     const handleSelectedCategory = (category) => {
-        handleCategory(category)
+        //handleCategory(category)
+        navigation.push("Products")
     }
 
 

@@ -1,4 +1,4 @@
-import { Button, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
+import { Button, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useEffect, useState } from 'react';
 
 import { Entypo } from '@expo/vector-icons';
@@ -10,7 +10,7 @@ import { colors } from '../Styles/Colors';
 
 ;
 
-const ProductsScreen = ({category = {id: 1, category: "Ropa"}, handleSelectedProduct, handleCategory}) => {
+const ProductsScreen = ({category = {id: 1, category: "Ropa"}, navigation}) => {
 
     const [input, setInput] = useState("");
     const [initialProducts, setInitialProducts] = useState([])
@@ -39,8 +39,16 @@ const ProductsScreen = ({category = {id: 1, category: "Ropa"}, handleSelectedPro
 
     //console.log(initialProducts);
     //console.log(productsFiltered);
-
     //const handleSelectedProduct = (Producto) => {    }
+
+    const handleDetailProduct = () => {
+        console.log("Se navegará hacia el detail");
+        navigation.navigate("Detail")
+    }
+
+    const handleBack = () => {
+        navigation.goBack();
+    }
 
     return (
         <KeyboardAvoidingView 
@@ -65,8 +73,8 @@ const ProductsScreen = ({category = {id: 1, category: "Ropa"}, handleSelectedPro
                         </TouchableOpacity>
                     </Searcher>
                     <View style={styles.listContainer}>
-                        <List data={productsFiltered} itemType ={"Producto"} onPress={handleSelectedProduct}/>
-                        <Button title='Go back' onPress={()=> handleCategory(null)}/>
+                        <List data={productsFiltered} itemType ={"Producto"} onPress={handleDetailProduct}/>
+                        <Button title='Go back' onPress={handleBack}/>
                     </View>
                 </View>
             </TouchableWithoutFeedback>

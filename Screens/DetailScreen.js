@@ -1,10 +1,20 @@
-import { Button, StyleSheet, Text, View, useWindowDimensions } from 'react-native'
+import { Button, Dimensions, Image, StyleSheet, Text, View, useWindowDimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import ProductItem from '../Components/List/ProductItem'
 
-const DetailScreen = ({ product, handleProduct}) => {
+const DetailScreen = ({ product =
+    {
+        id: 8,
+        category: 4,
+        description: "Product 8",
+        price: 80.63,
+        image: "https://picsum.photos/200/300",
+    },
+    navigation
+}) => {
+
 
     const {height, width} = useWindowDimensions();
     const [orientation, setOrientation] = useState("portrait");
@@ -13,20 +23,25 @@ const DetailScreen = ({ product, handleProduct}) => {
         setOrientation( height > width ? "portrait" : "landscape")
     }, [height, width])
 
-    console.log(orientation);
+    //console.log(orientation);
+
+    const handleBack = () => {
+        navigation.goBack();
+    }
+
 
     return (
         <>
-        <Header title={product.descrition}/>
+        <Header title={product.description}/>
         <View style={orientation === "portrait" ? styles.containerVertical: styles.containerHorizontal}>
             <Image
                 source={{uri: product.image}}
                 style={styles.image}
                 resizeMode="cover"
             />
-            <Text>{product.descrition}</Text>
+            <Text>{product.description}</Text>
             <Text>$ {product.price}</Text>
-            <Button onPress={()=> handleProduct(null)} title='Go back'/>
+            <Button onPress={handleBack} title='Go back'/>
         </View>
         </>
     )
